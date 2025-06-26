@@ -1,0 +1,20 @@
+% Load the data
+load('meteodata.mat');
+
+% Assume the 5th column is temperature (replace if column index differs)
+temperature = meteodata(:, 5);
+time = meteodata(:, 4); % Hour of the day
+day = meteodata(:, 2); % Day of the month
+
+% Find the maximum temperature and its index
+[max_temp, max_index] = max(temperature);
+
+% Retrieve the corresponding day and hour
+hottest_day = day(max_index);
+hottest_hour = time(max_index);
+
+% Display the results
+fprintf('The hottest hour is on Day %d, Hour %d with a temperature of %.2f°C.\n', ...
+    hottest_day, hottest_hour, max_temp);
+
+_________________
